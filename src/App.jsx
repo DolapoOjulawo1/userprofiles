@@ -6,7 +6,7 @@ import { User } from './info';
 function App() {
     const [query, setQuery] = useState("")
 
-    console.log(Users.filter(user=>user.firstName.toLowerCase().includes("ac")));
+    
   return (
     <div className='profile1'>
         <div>
@@ -16,7 +16,9 @@ function App() {
        onChange={e=> setQuery(e.target.value)} />
       <ul className='list'>
         {Users.filter(user =>
-        user.firstName.toLowerCase().includes(query)
+        user.firstName.toLowerCase().includes(query) ||
+        user.lastName.toLowerCase().includes(query)
+      
         ).map((user) => (
             
           <li className='listItem' key={user.id}>  {user.picture} {user.id}
@@ -29,7 +31,8 @@ function App() {
         <div className='space'>
       <ul className='list'>
         {User.filter(user =>
-        user.firstName.toLowerCase().includes(query)
+        user.firstName.toLowerCase().includes(query) ||
+        user.lastName.toLowerCase().includes(query) 
         ).map((user) => (
             
           <li className='listItem' key={user.id}>  {user.picture} {user.id} 
